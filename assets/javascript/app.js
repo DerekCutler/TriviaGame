@@ -1,7 +1,7 @@
 // STARTING GLOBAL VARIABLES
 
 //Starting Time
-let timer = 13;
+let time = 13;
 
 // Starting Stats
 let correct = 0;
@@ -17,30 +17,37 @@ let interval;
 // CALL FUNCTIONS
 
 
-//  SHOULD countdown from the start timer (13)
+//  countdown from the start timer (13)
+
+
 function countdown() {
-    timer--;
-    $("#timerDisplay").html("<h3>Time left: " + timer + "</h3>");
-    if (timer === 0) {
-        alert("I think it's time for second breakfast!");
-        // resetTimer();
-    }    
+    timer = setInterval(function () {
+        $("#timerDisplay").html("<h3>Time left: " + time + "</h3>");
+        time--;
+
+        if (time === -1) {
+            clearInterval(timer);
+            $("#timerDisplay").html("<h3>Want to grab second breakfast?</h3>");
+        }
+    }, 1000);
 }
 
-
+function displayWinLoss() {
+    if (time >= -2) {
+        $("#correct").html("<h3>Nailed it: " + correct + "<H3>");
+        $("#incorrect").html("<h3>Wrong: " + incorrect + "<H3>");
+    }
+}
 
 
 // ONCE LOADED FUNCTIONS
-$(document).ready(function() {
-
-// SHOULD display the countdown 
-countdown();
-
-$("#correct").html("<h3>Nailed it: " + "TBD" + "<H3>");
-$("#incorrect").html("<h3>Wrong: " + "TBD" + "<H3>");
+$(document).ready(function () {
+    countdown();
+    displayWinLoss();
 
 
 }
+);
 
 
 
@@ -48,7 +55,6 @@ $("#incorrect").html("<h3>Wrong: " + "TBD" + "<H3>");
 
 
 
- 
 
 // On Click Events
 
