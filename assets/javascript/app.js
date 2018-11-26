@@ -1,30 +1,56 @@
-// Start With Variables
+// STARTING GLOBAL VARIABLES
 
-var sec = 21
+//Starting Time
+let timer = 13;
 
-
-
-
-// Functions
-
-var timer = setInterval(function() { 
-    $('#time').text(sec--);
-    if (sec === 0) {
-       $('#time').fadeOut('fast');
-       alert("It looks like you ran out of time!")
-     //   clearInterval(timer);
-    } 
- }, 1000);
+// Starting Stats
+let correct = 0;
+let incorrect = 0;
 
 
+let interval;
+
+
+
+
+
+// CALL FUNCTIONS
+
+
+//  SHOULD countdown from the start timer (13)
+function countdown() {
+    timer--;
+    $("#timerDisplay").html("<h3>Time left: " + timer + "</h3>");
+    if (timer === 0) {
+        alert("I think it's time for second breakfast!");
+        // resetTimer();
+    }    
+}
+
+
+
+
+// ONCE LOADED FUNCTIONS
+$(document).ready(function() {
+
+// SHOULD display the countdown 
+countdown();
+
+$("#correct").html("<h3>Nailed it: " + "TBD" + "<H3>");
+$("#incorrect").html("<h3>Wrong: " + "TBD" + "<H3>");
+
+
+}
+
+
+
+
+
+
+
+ 
 
 // On Click Events
-
-
-    // Show in the HTMLs
-    $("#time").html("<h1>How much time do I have left: " + timer + "</h2>");
-
-$("input[type="radio"]:checked")
 
 
 
