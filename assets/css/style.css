@@ -109,12 +109,14 @@ h2 {font-size: 21px;}
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	align-items: stretch;
+	align-items: space-around;
 	align-content: stretch;
     width: 100%;
     padding: 10px;
     /* background-color: black; */
 }
+
+
 
 .cont4 { 
 	display: flex;
