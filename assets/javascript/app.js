@@ -1,14 +1,13 @@
 // START GLOBAL VARIABLES
 
 //Starting Time
-let time = 21;
+let time =21;
 
 // Starting Stats
 let correct = 0;
-let incorrect = 0;
+let incorrect = 3;
 
 // END GLOBAL VARIABLES
-
 
 
 // START CALL FUNCTIONS
@@ -21,50 +20,54 @@ function countdown() {
 
         if (time === -1) {
             clearInterval(timer);
-            $("#timerDisplay").html("<h3>Want to grab second breakfast?</h3>");
+            $("#timerDisplay").html("<h3>Game over, man.</h3>");
+            $("#correctDisplay").html("<h3>Game over!<H3>");
+            $("#incorrectDisplay").html("<h3>Want to grab second breakfast?<H3>");
+            document.getElementById("submit").disabled = true;
         }
     }, 1000);
 }
 
-// ** NEEDS HELP should dislpay the wins & losses in the htmlz**
-function displayWinLoss() {
-    if (time >= -2) {
-        $("#correct").html("<h3>Nailed it: " + correct + "<H3>");
-        $("#incorrect").html("<h3>Wrong: " + incorrect + "<H3>");
-    }
+// Stops the timer
+function myStopFunction() {
+    clearInterval(timer);
 }
-// END CALL FUNCTIONS
 
+// END CALL FUNCTIONS
 
 
 // START ONCE LOADED FUNCTIONS
 $(document).ready(function () {
     countdown();
-    displayWinLoss();
-
-}
-);
+});
 // END ONCE LOADED FUNCTIONS
 
 
-
 // START ONCLICK EVENTS
+$("#submit").on("click", function () {
+    myStopFunction();
+    $("#submit").unbind();
+    // stopInterval(timer);
+    if (document.getElementById("q1-2").checked == true) {
+        correct++; 
+        incorrect--;
+    } 
+    if (document.getElementById("q2-3").checked == true) {
+        correct++; 
+        incorrect--;
+    } 
+    if (document.getElementById("q3-3").checked == true) {
+        correct++; 
+        incorrect--;
+    } 
 
-// ** Needs help.  on click Submit should record q1, q2, q3 and adjust the correct and incorrect.
+    // displayWinLoss();
+    $("#correctDisplay").html("<h3>Nailed it: " + correct + "<H3>");
+    $("#incorrectDisplay").html("<h3>Wrong: " + incorrect + "<H3>");
+});
 
 
 // END ONCLICK EVENTS
-
-
-
-    // <!-- Default unchecked --> Radio HTM Example
-    // <div class="radio">
-    //     <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
-    //     <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
-    // </div>
-
-
-
 
 
 // ** FIN **
