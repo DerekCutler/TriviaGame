@@ -1,6 +1,10 @@
 // START GLOBAL VARIABLES
 
+//Start Alert
+alert("Welcome to the Lord of the Trivial Game.  You will have 21 seconds to provide and submit your answers.  Click 'OK' when you are ready to begin.")
+
 //Starting Time
+
 let time =21;
 
 // Starting Stats
@@ -46,7 +50,7 @@ $(document).ready(function () {
 // START ONCLICK EVENTS
 $("#submit").on("click", function () {
     myStopFunction();
-    $("#submit").unbind();
+    document.getElementById("submit").disabled = true;
     // stopInterval(timer);
     if (document.getElementById("q1-2").checked == true) {
         correct++; 

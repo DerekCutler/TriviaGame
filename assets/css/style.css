@@ -48,9 +48,9 @@ h2 {font-size: 21px;}
     border-color: gray;  
 }
 
-#incorrectDisplay {
+/* #incorrectDisplay {
     color: black;
-}
+} */
 
 .cont2{
 	display: flex;
